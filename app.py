@@ -1,10 +1,11 @@
 import os
 
 def check_login(username, password):
-    if username == "admin" and password == "123456":
+    expected_user = os.getenv("APP_USER", "admin")
+    expected_pass = os.getenv("APP_PASSWORD", "secret")
+    if username == expected_user and password == expected_pass:
         print("Login Successful!")
         return True
-
     else:
         print("Login Failed!")
         return False
